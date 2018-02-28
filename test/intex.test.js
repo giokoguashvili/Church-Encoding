@@ -1,5 +1,18 @@
-const sum = require('../src/index.js');
+var { 
+  Not,
+  If,
+  False,
+  True,
+  decodeBoolean
+} = require('../src/index')
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+test('check booleans', () => {
+  expect(decodeBoolean(True)).toBe(true);
+  expect(decodeBoolean(False)).toBe(false);
+
+  expect(If(True)("Yes")("No")).toBe("Yes");
+  expect(If(False)("Yes")("No")).toBe("No");
+
+  expect(decodeBoolean(Not(True))).toBe(false);
+  expect(decodeBoolean(Not(False))).toBe(true);
 });
