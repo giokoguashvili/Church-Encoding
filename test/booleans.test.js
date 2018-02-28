@@ -6,7 +6,13 @@ var {
   False,
   True,
   decodeBoolean
-} = require('../src/index')
+} = require('../src/booleans')
+
+var {
+  Pair,
+  First,
+  Second
+} = require('../src/pairs')
 
 test('check booleans', () => {
   expect(decodeBoolean(True)).toBe(true);
@@ -27,4 +33,9 @@ test('check booleans', () => {
   expect(decodeBoolean(Or(True)(False))).toBe(true);
   expect(decodeBoolean(Or(False)(True))).toBe(true);
   expect(decodeBoolean(Or(False)(False))).toBe(false);
+});
+
+test('check pair functionality', () => {
+  expect(decodeBoolean(First(Pair(True)(False)))).toBe(true);
+  expect(decodeBoolean(Second(Pair(True)(False)))).toBe(false);
 });
