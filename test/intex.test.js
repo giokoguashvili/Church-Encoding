@@ -1,4 +1,5 @@
 var { 
+  And,
   Not,
   If,
   False,
@@ -15,4 +16,9 @@ test('check booleans', () => {
 
   expect(decodeBoolean(Not(True))).toBe(false);
   expect(decodeBoolean(Not(False))).toBe(true);
+
+  expect(decodeBoolean(And(True)(True))).toBe(true);
+  expect(decodeBoolean(And(True)(False))).toBe(false);
+  expect(decodeBoolean(And(False)(True))).toBe(false);
+  expect(decodeBoolean(And(False)(False))).toBe(false);
 });
