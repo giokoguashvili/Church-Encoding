@@ -30,7 +30,8 @@ var {
 } = require('../src/numbers')
 
 var {
-	IsZero
+	IsZero,
+	Succ
 } = require('../src/arithmetics')
 
 test('check booleans', () => {
@@ -75,4 +76,5 @@ test('check numbers', () => {
 test('check arithmetics', () => {
 	expect(decodeBoolean(IsZero(Zero))).toBe(true);
 	expect(decodeBoolean(IsZero(One))).toBe(false);
+	expect(decodeNumber(Succ(Two))).toBe(3);
 });
