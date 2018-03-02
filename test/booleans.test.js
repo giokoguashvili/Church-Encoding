@@ -29,6 +29,10 @@ var {
 	decodeNumber
 } = require('../src/numbers')
 
+var {
+	IsZero
+} = require('../src/arithmetics')
+
 test('check booleans', () => {
   expect(decodeBoolean(True)).toBe(true);
   expect(decodeBoolean(False)).toBe(false);
@@ -66,4 +70,9 @@ test('check numbers', () => {
 	expect(decodeNumber(Seven)).toBe(7);
 	expect(decodeNumber(Eight)).toBe(8);
 	expect(decodeNumber(Nine)).toBe(9);
+});
+
+test('check arithmetics', () => {
+	expect(decodeBoolean(IsZero(Zero))).toBe(true);
+	expect(decodeBoolean(IsZero(One))).toBe(false);
 });
