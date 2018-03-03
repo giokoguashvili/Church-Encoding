@@ -32,7 +32,8 @@ var {
 var {
 	IsZero,
 	Succ,
-	Sum
+	Sum,
+	Pred
 } = require('../src/arithmetics')
 
 test('check booleans', () => {
@@ -79,4 +80,7 @@ test('check arithmetics', () => {
 	expect(decodeBoolean(IsZero(One))).toBe(false);
 	expect(decodeNumber(Succ(Two))).toBe(3);
 	expect(decodeNumber(Sum(Two)(Five))).toBe(7);
+
+	//expect(decodeNumber(First(Pair(One)(Three))))
+	expect(decodeNumber(Pred(Six))).toBe(5);
 });
