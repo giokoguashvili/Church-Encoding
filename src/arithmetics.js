@@ -16,7 +16,7 @@ var {
 const IsZero = n => n(x => False)(True)
 const Succ = n => f => x => f(n(f)(x))
 const Sum = n0 => n1 => f => x => n1(f)(n0(f)(x))
-
+const Sub = n0 => n1 => n1(Pred)(n0)
 // fold (\(x,y) -> (y,y+1)) (0,0)
 const Pred = n => First(
 					n	(p => Pair(
@@ -32,5 +32,6 @@ module.exports = {
 	Sum,
 	Pred,
 	Mul,
-	Mul1
+	Mul1,
+	Sub
 }
