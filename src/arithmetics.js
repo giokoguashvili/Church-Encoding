@@ -24,9 +24,11 @@ const Pred = n => First(
 								Succ(Second(p))))
 						(Pair(Zero)(Zero)))
 
+const Mul = n0 => n1 => n1(Sum(n0))(Zero)
 module.exports = {
 	IsZero,
 	Succ,
 	Sum,
-	Pred
+	Pred,
+	Mul
 }
