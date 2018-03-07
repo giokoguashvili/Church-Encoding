@@ -36,7 +36,8 @@ var {
 	Pred,
 	Mul,
 	Mul1,
-	Sub
+	Sub,
+	Pow
 } = require('../src/arithmetics')
 
 test('check booleans', () => {
@@ -86,7 +87,9 @@ test('check arithmetics', () => {
 
 	//expect(decodeNumber(First(Pair(One)(Three))))
 	expect(decodeNumber(Pred(Six))).toBe(5);
+	expect(decodeNumber(Sub(Nine)(Five))).toBe(4);
 	expect(decodeNumber(Mul(Two)(Seven))).toBe(14);
 	expect(decodeNumber(Mul1(Three)(Nine))).toBe(27);
-	expect(decodeNumber(Sub(Nine)(Five))).toBe(4);
+
+	expect(decodeNumber(Pow(Five)(Three))).toBe(125);
 });

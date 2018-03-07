@@ -10,7 +10,8 @@ var {
 } = require('../src/pairs')
 
 var {
-	Zero
+	Zero,
+	One
 } = require('../src/numbers')
 
 const IsZero = n => n(x => False)(True)
@@ -26,6 +27,10 @@ const Pred = n => First(
 
 const Mul = n0 => n1 => n1(Sum(n0))(Zero)
 const Mul1 = n0 => n1 => f => n0(n1(f))
+
+const Pow = n => x => x(Mul1(n))(One)
+
+
 module.exports = {
 	IsZero,
 	Succ,
@@ -33,5 +38,6 @@ module.exports = {
 	Pred,
 	Mul,
 	Mul1,
-	Sub
+	Sub,
+	Pow
 }
