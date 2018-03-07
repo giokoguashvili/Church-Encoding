@@ -14,7 +14,6 @@ var {
 	One
 } = require('../src/numbers')
 
-const IsZero = n => n(x => False)(True)
 const Succ = n => f => x => f(n(f)(x))
 const Sum = n0 => n1 => f => x => n1(f)(n0(f)(x))
 const Sub = n0 => n1 => n1(Pred)(n0)
@@ -32,7 +31,6 @@ const Pow = n => x => x(Mul1(n))(One)
 
 
 module.exports = {
-	IsZero,
 	Succ,
 	Sum,
 	Pred,

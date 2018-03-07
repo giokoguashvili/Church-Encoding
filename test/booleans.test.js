@@ -31,7 +31,6 @@ var {
 } = require('../src/numbers')
 
 var {
-	IsZero,
 	Succ,
 	Sum,
 	Pred,
@@ -40,6 +39,11 @@ var {
 	Sub,
 	Pow
 } = require('../src/arithmetics')
+
+var {
+	IsZero,
+	LEQ
+} = require('../src/predicates')
 
 test('check booleans', () => {
 	  expect(decodeBoolean(True)).toBe(true);
@@ -104,4 +108,6 @@ test('check arithmetics', () => {
 test('check predicates', () => {
 	expect(decodeBoolean(IsZero(Zero))).toBe(true);
 	expect(decodeBoolean(IsZero(Two))).toBe(false);
+	
+	expect(decodeBoolean(LEQ(One)(Two))).toBe(true);
 });
