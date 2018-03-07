@@ -7,13 +7,16 @@ const And = b1 => b2 => b1(b2)(b1)
 const Or = b1 => b2 => b1(b1)(b2)
 
 const decodeBoolean = b => b(true)(false)
+// A xor B == (A or B) && !(A and B)
+const Xor = A => B => And(Or(A)(B))(Not(And(A)(B)))
 
 module.exports = { 
-    Or,
-    And,
-    Not,
-    If,
-    False,
-    True,
-    decodeBoolean
+	Or,
+	And,
+	Not,
+ 	If,
+	False,
+	True,
+	Xor,
+	decodeBoolean
 };

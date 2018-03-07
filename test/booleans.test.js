@@ -5,6 +5,7 @@ var {
   If,
   False,
   True,
+  Xor,
   decodeBoolean
 } = require('../src/booleans')
 
@@ -92,4 +93,10 @@ test('check arithmetics', () => {
 	expect(decodeNumber(Mul1(Three)(Nine))).toBe(27);
 
 	expect(decodeNumber(Pow(Five)(Three))).toBe(125);
+
+	expect(decodeBoolean(Xor(True)(False))).toBe(true);
+	expect(decodeBoolean(Xor(True)(True))).toBe(false);
+	expect(decodeBoolean(Xor(False)(True))).toBe(true);
+	expect(decodeBoolean(Xor(False)(False))).toBe(false);
+		
 });
