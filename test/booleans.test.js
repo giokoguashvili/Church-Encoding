@@ -42,24 +42,30 @@ var {
 } = require('../src/arithmetics')
 
 test('check booleans', () => {
-  expect(decodeBoolean(True)).toBe(true);
-  expect(decodeBoolean(False)).toBe(false);
+	  expect(decodeBoolean(True)).toBe(true);
+	  expect(decodeBoolean(False)).toBe(false);
+	
+	  expect(If(True)("Yes")("No")).toBe("Yes");
+	  expect(If(False)("Yes")("No")).toBe("No");
+	
+	  expect(decodeBoolean(Not(True))).toBe(false);
+	  expect(decodeBoolean(Not(False))).toBe(true);
+	
+	  expect(decodeBoolean(And(True)(True))).toBe(true);
+	  expect(decodeBoolean(And(True)(False))).toBe(false);
+	  expect(decodeBoolean(And(False)(True))).toBe(false);
+	  expect(decodeBoolean(And(False)(False))).toBe(false);
+	
+	  expect(decodeBoolean(Or(True)(True))).toBe(true);
+	  expect(decodeBoolean(Or(True)(False))).toBe(true);
+	  expect(decodeBoolean(Or(False)(True))).toBe(true);
+	  expect(decodeBoolean(Or(False)(False))).toBe(false);
+	
 
-  expect(If(True)("Yes")("No")).toBe("Yes");
-  expect(If(False)("Yes")("No")).toBe("No");
-
-  expect(decodeBoolean(Not(True))).toBe(false);
-  expect(decodeBoolean(Not(False))).toBe(true);
-
-  expect(decodeBoolean(And(True)(True))).toBe(true);
-  expect(decodeBoolean(And(True)(False))).toBe(false);
-  expect(decodeBoolean(And(False)(True))).toBe(false);
-  expect(decodeBoolean(And(False)(False))).toBe(false);
-
-  expect(decodeBoolean(Or(True)(True))).toBe(true);
-  expect(decodeBoolean(Or(True)(False))).toBe(true);
-  expect(decodeBoolean(Or(False)(True))).toBe(true);
-  expect(decodeBoolean(Or(False)(False))).toBe(false);
+	expect(decodeBoolean(Xor(True)(False))).toBe(true);
+	expect(decodeBoolean(Xor(True)(True))).toBe(false);
+	expect(decodeBoolean(Xor(False)(True))).toBe(true);
+	expect(decodeBoolean(Xor(False)(False))).toBe(false);
 });
 
 test('check pair functionality', () => {
@@ -93,10 +99,9 @@ test('check arithmetics', () => {
 	expect(decodeNumber(Mul1(Three)(Nine))).toBe(27);
 
 	expect(decodeNumber(Pow(Five)(Three))).toBe(125);
+});
 
-	expect(decodeBoolean(Xor(True)(False))).toBe(true);
-	expect(decodeBoolean(Xor(True)(True))).toBe(false);
-	expect(decodeBoolean(Xor(False)(True))).toBe(true);
-	expect(decodeBoolean(Xor(False)(False))).toBe(false);
-		
+test('check predicates', () => {
+	expect(decodeBoolean(IsZero(Zero))).toBe(true);
+	expect(decodeBoolean(IsZero(Two))).toBe(false);
 });
