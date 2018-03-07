@@ -110,4 +110,6 @@ test('check predicates', () => {
 	expect(decodeBoolean(IsZero(Two))).toBe(false);
 	
 	expect(decodeBoolean(LEQ(One)(Two))).toBe(true);
+	expect(decodeBoolean(LEQ(Two)(Two))).toBe(true);
+	expect(decodeBoolean(LEQ(Three)(Two))).toBe(false);
 });
