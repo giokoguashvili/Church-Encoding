@@ -45,6 +45,10 @@ var {
 	LEQ
 } = require('../src/predicates')
 
+var {
+	fact
+} = require('../src/math.js')
+
 test('check booleans', () => {
 	  expect(decodeBoolean(True)).toBe(true);
 	  expect(decodeBoolean(False)).toBe(false);
@@ -112,4 +116,9 @@ test('check predicates', () => {
 	expect(decodeBoolean(LEQ(One)(Two))).toBe(true);
 	expect(decodeBoolean(LEQ(Two)(Two))).toBe(true);
 	expect(decodeBoolean(LEQ(Three)(Two))).toBe(false);
+});
+
+test('check math functions', () => {
+
+	expect(decodeNumber(fact(Five))).toBe(120);
 });
